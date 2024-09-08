@@ -9,29 +9,23 @@ import java.util.Scanner;
 public class SetDeTenis {
     public static String evaluar(int numVictoriasA, int numVictoriasB) {
         String resultado = "";
-        if (numVictoriasA <=7 && numVictoriasB <= 7){
-            if (numVictoriasA - numVictoriasB >= 2){
-                if (numVictoriasA >=5 && numVictoriasB >=5){
-                    resultado = "Ganó A";
-                }else if(numVictoriasA >=5 && numVictoriasB <5){
-                    resultado = "Inválido";
-                }
-            }else{
-                resultado = "Aún no termina";
-            }
-            if (numVictoriasB - numVictoriasA >= 2){
-                if (numVictoriasB >=5 && numVictoriasA >=5){
-                    resultado = "Ganó B";
-                }else if(numVictoriasB >=5 && numVictoriasA <5){
-                    resultado = "Inválido";
-                }
-            }else{
-                resultado = "Aún no termina";
-            }
-        }else{
+        
+        if (numVictoriasA > 7 || numVictoriasB > 7) {
+            resultado = "Inválido";
+        }else if (numVictoriasA == 7 && numVictoriasB == 6) {
+            resultado = "Ganó A";
+        }else if (numVictoriasB == 7 && numVictoriasA == 6) {
+            resultado = "Ganó B";
+        }else if (numVictoriasA >= 6 && numVictoriasA - numVictoriasB >= 2) {
+            resultado = "Ganó A";
+        } else if (numVictoriasB >= 6 && numVictoriasB - numVictoriasA >= 2) {
+            resultado = "Ganó B";
+        }else if (numVictoriasA < 6 && numVictoriasB < 6) {
+            resultado = "Aún no termina";
+        }else {
             resultado = "Inválido";
         }
-        
+  
         return resultado;
     }
     
